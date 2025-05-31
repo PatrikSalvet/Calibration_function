@@ -82,7 +82,7 @@ All input parameters and configuration settings are defined within the `Main_Run
   * `label_font_size` (int): Font size for axis labels.
   * `title_font_size` (int): Font size for the plot title.
 * **Main Surface Setting:** Defines the appearance of the 3D fracture locus surface.
-  * `surface_alpha` (float): Defineds transparency of the main surface.
+  * `surface_alpha` (float): Defines transparency of the main surface.
   * `surface_rgb_color` (numpy.ndarray): RGB color values for the main surface.
 * **Plane Stress Curve Setting:** Controls the appearance of the plane stress fracture curve.
   * `plot_plane_stress_curve` (bool): True to display the plane stress curve, False otherwise.
@@ -107,7 +107,7 @@ All input parameters and configuration settings are defined within the `Main_Run
 ### Output Results
 After execution, the notebook will display a summary of the analysis results in the output cells, including:
   * **Calibrated material parameters ($G_1$ to $G_6$):** The optimized values found by the least-squares method.
-  * **Fracture strain difference ($e_{f,r}$):** A NumPy array showing the residual error between the measured fracture strain and the fracture strain predicted by the calibrated model for each specimen.
+  * **Fracture strain difference:** A NumPy array showing the residual error between the measured fracture strain and the fracture strain predicted by the calibrated model for each specimen.
   * **Percentage calibration errors for each specimen:** The individual percentage difference for each experimental data point, calculated as $|(\epsilon_{f,measured} - \epsilon_{f,predicted}) / \epsilon_{f,measured}| \times 100%$.
   * **Total percentage error:** The sum of all individual percentage errors, providing an overall measure of the model's fit.
   * **A 3D visualization** of the calibrated KHPS2 fracture locus, overlaid with experimental points, plane stress curve, and constant invariant curves, as configured in the `plotting_options`.
@@ -124,22 +124,22 @@ After execution, the notebook will display a summary of the analysis results in 
 └── Main_Run_Function.ipynb
 ```
 
-* `package/`: This contains the core Python modules.
+* `package/`: Contains the core Python modules.
   * `KHPS2_calculation.py`: Orchestrates the overall KHPS2 calculation and optimization pipeline, calling other functions as needed.
   * `KHPS2_function.py`: Defines the residual function for the KHPS2 criterion, used by the optimization algorithm.
   * `KHPS2_plotting.py`: Handles the 3D visualization of the fracture locus and experimental data.
   * `Locus_calculation.py`: Implements the mathematical formulas for calculating the cut-off stress triaxiality and fracture strain based on the KHPS2 criterion.
   * `Main_workflow.py`: Contains the `run_khps2_analysis` function which acts as a wrapper to execute the entire analysis pipeline, integrating calculations and plotting.
 * `Main_Run_Function.ipynb`:  The central control script for the entire analysis workflow. This Jupyter Notebook defines all input parameters and configuration settings, orchestrates the execution of the calibration and plotting functions from the package, and displays the final results.
-Call help() for more detailed information on any of the functions.
+<br>Call help() for more detailed information on any of the functions.
 
 ## Mathematical Formulation of KHPS2
-The KHPS2 ductile fracture criterion is defined by the following equation for the equivalent plastic strain at fracture ($\epsilon_f$):
+The KHPS2 ductile fracture criterion is defined by the following equation for the equivalent plastic strain at fracture:
 ![KHPS2 fracture strain formula](images/KHPS2_Formula_1.png)<br>
 <br>where:
   * $\eta$ is the stress triaxiality.
-  * $ξ$ is the normalized third invariant of the deviatoric stress.
-  * $G_1, G_2, G_3, G_4, G_5, G_6$ are the unknown material parameters that are calibrated by this tool.
+  * $ξ$ is normalized third invariant of the deviatoric stress.
+  * $G_1, G_2, G_3, G_4, G_5, G_6$ are unknown material parameters calibrated by this tool.
   * $\eta_c$ represents cut-off stress triaxiality defined as:  
 
 <br>![KHPS2 cut off stress triaxiality formula](images/KHPS2_Formula_2.png)
@@ -150,12 +150,7 @@ Refer to the following papers for more information about the use case of the mat
 * [Diploma thesis](Projects_use_case_papers/Projects_use_case_2.pdf)
 
 ## Calibrated output example
-Output example, showcasing the calibrated KHPS2 fracture locus, the calibration data points, the iteration process and the final calibration accuracy assessment for the given inputs.
+Output example, showcasing the calibrated KHPS2 fracture locus, the calibration data points, the iteration process and the final calibration accuracy assessment for a given inputs.
 ![Iteration](images/Output_1.png)
 ![Calibrated 3D plot](images/Output_2.png)
 ![Result evaluation](images/Output_3.png)
-
-
-
-
-
