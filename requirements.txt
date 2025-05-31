@@ -1,8 +1,3 @@
-<<<<<<< HEAD
 numpy
 scipy
-=======
-numpy
-scipy
->>>>>>> 07d5d1447a1b0b7b0a0f9648d55007b743258598
 matplotlib
