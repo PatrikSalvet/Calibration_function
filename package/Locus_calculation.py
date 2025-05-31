@@ -13,7 +13,7 @@ def locus_calculation(G_params, tri_values, invar_values, denominator_epsilon=1e
         denominator_epsilon: A small value to prevent division by zero or near-zero.
 
     Function outputs:
-        (tri_c, ef)     <- tuple of cut-off plane stress triaxiality, fracture strain
+        (tri_c, ef)    <-- Tuple of cut-off plane stress triaxiality, fracture strain
     """
     # KHPS2_function.py results - calibrated parameters
     G1, G2, G3, G4, G5, G6 = G_params
