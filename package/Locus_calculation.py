@@ -1,10 +1,11 @@
     # Library import
 import numpy as np
 
+    # Definition of the KHPS2 ductile fracture criterion mathematical formula
 def locus_calculation(G_params, tri_values, invar_values, denominator_epsilon=1e-6):
     """
     Calculates the cut-off stress triaxiality (tri_c) and fracture strain (ef)
-    for the KHPS2 fracture criterion.
+    of the KHPS2 fracture criterion.
 
     Function inputs:
         G_params: Array of material parameters [G1, G2, G3, G4, G5, G6].

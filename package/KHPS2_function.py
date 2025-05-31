@@ -2,7 +2,7 @@
 import numpy as np
 from .Locus_calculation import locus_calculation
 
-    # Definition of the ductile fracture criterion (mathematical function definition)
+    # Residual calculation function - KHPS2 ductile fracture criterion function
         # specimen[0] = Fracture strain   specimen[1] = Stress triaxiality   specimen[2] = Normalized third invariant
         # G[0] - G[5] = Investigated parameters (constants) G1, G2,... G6
 def KHPS2_function(G, specimen_data, denominator_epsilon = 1e-6):
