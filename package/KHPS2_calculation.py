@@ -79,7 +79,6 @@ def KHPS2_calculation(specimen_data, initial_G, lower_bounds, upper_bounds,
                            initial_G, bounds=(lower_bounds, upper_bounds), **optimization_options)
     
     # Final LSM results (Material parameters - KHPS2_function's unknown values)
-    G1, G2, G3, G4, G5, G6 = result.x    # Definition for easier individual access
     final_G_params = result.x
 
     # Mesh matrix creation (Stress triaxiality - Normalized third invariant)
@@ -129,6 +128,6 @@ def KHPS2_calculation(specimen_data, initial_G, lower_bounds, upper_bounds,
     pt_calibration_error = np.sum(p_calibration_error)
 
     # Returned calculated values of Stress triaxiality, Normalized third invariant, Fracture strain of the main surface,
-    # cut-off plane, plane stress curve, etc...         Also returns material parameters G1,... G6 and calibration errors
+    # cut-off plane, plane stress curve, etc..., also returns material parameters G1,... G6 and calibration errors
     return (final_G_params, x_tri, y_invar, ef, tri1, invar1, ef1,
                 tri_k, invar_k, ef_k, ef_r, total_abs_difference, p_calibration_error, pt_calibration_error, tri_c)

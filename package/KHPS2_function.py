@@ -16,21 +16,19 @@ def KHPS2_function(G, specimen_data, denominator_epsilon = 1e-6):
         (like scipy.optimize.least_squares) to find the optimal G parameters.
         
         Input parameters:          KHPS2_function(G, specimen_data, denominator_epsilon)
-        ------------------
-        G:
-            A 1D array of 6 material parameters (unknown constants) for the KHPS2 model:
-        specimen_data:
-            A dictionary where keys are specimen names (e.g., "specimen1") and
-            values are lists representing the measured data for each specimen.
-            Each list must be in the format of:
-                [Fracture strain, Stress triaxiality, Normalized third invariant]
-            - specimen[0]: Measured Fracture strain
-            - specimen[1]: Measured Stress triaxiality
-            - specimen[2]: Measured Normalized third invariant of deviatoric stress tensor
-        denominator_epsilon:
-            A small value to prevent division by zero, ensuring numerical stability.
-            float with default value of 1e-6
-        ------------------
+            G:
+                A 1D array of 6 material parameters (unknown constants) for the KHPS2 model:
+            specimen_data:
+                A dictionary where keys are specimen names (e.g., "specimen1") and
+                values are lists representing the measured data for each specimen.
+                Each list must be in the format of:
+                    [Fracture strain, Stress triaxiality, Normalized third invariant]
+                - specimen[0]: Measured Fracture strain
+                - specimen[1]: Measured Stress triaxiality
+                - specimen[2]: Measured Normalized third invariant of deviatoric stress tensor
+            denominator_epsilon:
+                A small value to prevent division by zero, ensuring numerical stability.
+                float with default value of 1e-6
 
         The function returns a 1D array of residuals. Each element represents the difference
         between the measured fracture strain and the predicted fracture strain for 
@@ -48,7 +46,6 @@ def KHPS2_function(G, specimen_data, denominator_epsilon = 1e-6):
         specimens_np_array = np.array(list(specimen_data.values()))
 
     # Extraction of all fracture strains, stress triaxialities, and normalized third invariants.
-        # Optimized numpy syntax replacing extraction by for loop
         ef_k = specimens_np_array[:, 0]
         tri_k = specimens_np_array[:, 1]
         invar_k = specimens_np_array[:, 2]
@@ -56,7 +53,7 @@ def KHPS2_function(G, specimen_data, denominator_epsilon = 1e-6):
     # Calculation of the locus fracture strain for the current specimen
         _, ef_kal = locus_calculation(
             G_params=G,                    # List of initial material parameters
-            ri_values=tri_k,               # All triaxiality values as an array
+            tri_values=tri_k,               # All triaxiality values as an array
             invar_values=invar_k,          # All invariant values as an array
             denominator_epsilon = denominator_epsilon)   # Numerical stability constant
 
