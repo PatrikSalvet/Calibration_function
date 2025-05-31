@@ -134,29 +134,26 @@ After execution, the notebook will display a summary of the analysis results in 
 * `Main_Run_Function.ipynb`:  The central control script for the entire analysis workflow. This Jupyter Notebook defines all input parameters and configuration settings, orchestrates the execution of the calibration and plotting functions from the package, and displays the final results.
 Call help() for more detailed information on any of the functions.
 
+
+
+
+
+
+
+
 ## Mathematical Formulation of KHPS2
 The KHPS2 ductile fracture criterion is defined by the following equation for the equivalent plastic strain at fracture ($\epsilon_f$):
-
-$$
-\epsilon_f = G_1 e^{-G_2 \eta} \left( \frac{1}{2} + \frac{1}{2} \cos\left(\frac{\pi I_3^*}{G_3}\right) \right) + G_4 \eta + G_5 I_3^* + G_6
-
-$$where:
-
-$\eta$ is the stress triaxiality.
-$I_3^*$ is the normalized third invariant of the deviatoric stress.
-$G_1, G_2, G_3, G_4, G_5, G_6$ are the material-dependent parameters that are calibrated by this tool.
-
-A cut-off stress triaxiality ($\eta_c$) is also part of the criterion, defining a lower bound for triaxiality below which fracture may not be predicted or is not of interest:
-
-$$\eta_c = -\left( G_3 + \frac{G_1 - G_3}{2} - G_2 \right) (I_3^*)^2 - \left( \frac{G_1 - G_3}{2} \right) I_3^* - G_2
-$$When $\eta &lt; \eta_c$, the material is considered to be in a stress state where fracture is less likely or not predicted by this criterion. Fracture strain values in this region are typically masked or set to NaN for visualization purposes.
-
 
 ![KHPS2 Fracture Locus and Calibration Points](my_output_image.png)
 ![Widget image03](test_files/Images_Readme/Widget_GUI_Example_3.png "Widget result image 2")
 
+
+
+
+
+
 ## References
 Refer to the following papers for more information and use case about the material calibration and the KHPS2 ductile fracture criterion.
-[Research Paper](Projects_use_case_papers/Projects_use_case_1.pdf)
-[Diploma thesis](Projects_use_case_papers/Projects_use_case_2.pdf)
+* [Research Paper](Projects_use_case_papers/Projects_use_case_1.pdf)
+* [Diploma thesis](Projects_use_case_papers/Projects_use_case_2.pdf)
 
