@@ -13,9 +13,8 @@ This repository provides a Python-based tool for calibrating material parameters
     - [Output Results](#output-results)
   - [Project Structure](#project-structure)
   - [Mathematical Formulation of KHPS2](#mathematical-formulation-of-khps2)
-  - [Contributing](#contributing)
-  - [License](#license)
-  - [Contact](#contact)
+  - [References](#references)
+  - [Calibrated output example](#calibrated-output-example)
 
 ## Introduction
 
@@ -134,26 +133,29 @@ After execution, the notebook will display a summary of the analysis results in 
 * `Main_Run_Function.ipynb`:  The central control script for the entire analysis workflow. This Jupyter Notebook defines all input parameters and configuration settings, orchestrates the execution of the calibration and plotting functions from the package, and displays the final results.
 Call help() for more detailed information on any of the functions.
 
-
-
-
-
-
-
-
 ## Mathematical Formulation of KHPS2
 The KHPS2 ductile fracture criterion is defined by the following equation for the equivalent plastic strain at fracture ($\epsilon_f$):
+![KHPS2 fracture strain formula](images/KHPS2_Formula_1.png)<br>
+<br>where:
+  * $\eta$ is the stress triaxiality.
+  * $ξ$ is the normalized third invariant of the deviatoric stress.
+  * $G_1, G_2, G_3, G_4, G_5, G_6$ are the unknown material parameters that are calibrated by this tool.
+  * $\eta_c$ represents cut-off stress triaxiality defined as:  
 
-![KHPS2 Fracture Locus and Calibration Points](my_output_image.png)
-![Widget image03](test_files/Images_Readme/Widget_GUI_Example_3.png "Widget result image 2")
-
-
-
-
-
+<br>![KHPS2 cut off stress triaxiality formula](images/KHPS2_Formula_2.png)
 
 ## References
-Refer to the following papers for more information and use case about the material calibration and the KHPS2 ductile fracture criterion.
+Refer to the following papers for more information about the use case of the material calibration and the KHPS2 ductile fracture criterion.
 * [Research Paper](Projects_use_case_papers/Projects_use_case_1.pdf)
 * [Diploma thesis](Projects_use_case_papers/Projects_use_case_2.pdf)
+
+## Calibrated output example
+Output example, showcasing the calibrated KHPS2 fracture locus, the calibration data points, the iteration process and the final calibration accuracy assessment for the given inputs.
+![Iteration](images/Output_1.png)
+![Calibrated 3D plot](images/Output_2.png)
+![Result evaluation](images/Output_3.png)
+
+
+
+
 
